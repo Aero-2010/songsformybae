@@ -1,109 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>I love you so much ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      color: #fff;
-      overflow: hidden;
-    }
-    .left {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      font-size: 1.8em;
-      max-width: 80%;
-    }
-    .right {
-      width: 400px;
-      background: #1db954;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
-      overflow-y: auto;
-    }
-    .playlist h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .playlist iframe {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-    .typing {
-      border-right: 2px solid #fff;
-      white-space: nowrap;
-      overflow: hidden;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I love you so much ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #eaf6ff, #f5fbff);
+    overflow: hidden;
+  }
+
+  .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .chat {
+    width: 80%;
+    max-width: 500px;
+  }
+
+  .bubble {
+    background: #fff;
+    color: #333;
+    padding: 14px 18px;
+    border-radius: 20px;
+    margin: 10px 0;
+    width: fit-content;
+    max-width: 100%;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    animation: pop 0.4s ease;
+  }
+
+  .bubble.me {
+    margin-left: auto;
+    background: linear-gradient(135deg, #ff5f9e, #ff8acb);
+    color: #fff;
+    border-bottom-right-radius: 5px;
+  }
+
+  @keyframes pop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .right {
+    width: 400px;
+    background: #000;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .right h2 {
+    text-align: center;
+    color: #1db954;
+    margin-bottom: 20px;
+  }
+
+  iframe {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  /* 💖 Floating hearts */
+  .heart {
+    position: absolute;
+    color: rgba(255, 105, 180, 0.7);
+    font-size: 20px;
+    animation: float 8s linear infinite;
+  }
+
+  @keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
+  }
+</style>
 </head>
+
 <body>
 
-  <div class="left">
-    <div id="phrase" class="typing"></div>
-  </div>
+<div class="left">
+  <div class="chat" id="chat"></div>
+</div>
 
-  <div class="right playlist">
-    <h2>I LOVE YOU THIS MUCH</h2>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5XeFesFbtLpXzIVDNQP22n?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>    
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/50x1Ic8CaXkYNvjmxe3WXy?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7JJmb5XwzOO8jgpou264Ml?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4xqrdfXkTW4T0RauPLv3WA?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3b95085PI7P3X3oC16Z3Wd?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-  </div>
-    
-    <script>
-    const phrases = [
-      "I love you my baby, my girl, my everything ❤️",
-      "Every day with you feels like a dream I never want to wake up from.",
-      "You’re my favorite ‘hello’ and hardest ‘goodbye’.",
-      "I fall in love with you more every single day.",
-      "Being with you makes everything better.",
-      "You’re my human Wi-Fi—can’t function properly without you.",
-      "You + me = ❤️ forever.",
-      "If loving you was a job, I’d be the happiest, overqualified employee.",
-      "You’re the peanut butter to my jelly, the cheese to my pizza.",
-      "You’re my everything.",
-      "I love you more than words can say.",
-      "You’re my home.",
-      "I’m yours, always."
-    ];
+<div class="right">
+  <h2>I LOVE YOU THIS MUCH</h2>
 
-    let phraseIndex = 0;
-    let charIndex = 0;
-    const phraseDiv = document.getElementById('phrase');
-    const typingSpeed = 50;
-    const pauseTime = 1500;
+  <iframe src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v"></iframe>
+  <iframe src="https://open.spotify.com/embed/track/5XeFesFbtLpXzIVDNQP22n"></iframe>
+  <iframe src="https://open.spotify.com/embed/track/50x1Ic8CaXkYNvjmxe3WXy"></iframe>
+  <iframe src="https://open.spotify.com/embed/track/7JJmb5XwzOO8jgpou264Ml"></iframe>
+  <iframe src="https://open.spotify.com/embed/track/4xqrdfXkTW4T0RauPLv3WA"></iframe>
+  <iframe src="https://open.spotify.com/embed/track/3b95085PI7P3X3oC16Z3Wd"></iframe>
+</div>
 
-    function typePhrase() {
-      if(charIndex < phrases[phraseIndex].length){
-        phraseDiv.textContent += phrases[phraseIndex][charIndex];
-        charIndex++;
-        setTimeout(typePhrase, typingSpeed);
-      } else {
-        setTimeout(() => {
-          phraseDiv.textContent = '';
-          charIndex = 0;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          typePhrase();
-        }, pauseTime);
-      }
+<script>
+  const messages = [
+    "I love you my baby, my girl, my everything ❤️",
+    "Every day with you feels like a dream I never want to wake up from.",
+    "You’re my favorite hello and hardest goodbye.",
+    "I fall in love with you more every single day.",
+    "Being with you makes everything better.",
+    "You’re my human Wi-Fi—can’t function without you 😭",
+    "You + me = ❤️ forever.",
+    "If loving you was a job, I’d be overqualified 😌",
+    "You’re my everything.",
+    "You’re my home.",
+    "I’m yours, always 💕"
+  ];
+
+  let index = 0;
+  const chat = document.getElementById("chat");
+
+  function addMessage() {
+    const bubble = document.createElement("div");
+    bubble.className = "bubble me";
+    bubble.textContent = messages[index];
+    chat.appendChild(bubble);
+
+    chat.scrollTop = chat.scrollHeight;
+    index = (index + 1) % messages.length;
+
+    if (chat.children.length > 6) {
+      chat.removeChild(chat.children[0]);
     }
+  }
 
-    typePhrase();
-  </script>
+  setInterval(addMessage, 2200);
+  addMessage();
+
+  /* 💖 Hearts */
+  function heart() {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = Math.random() * 20 + 15 + "px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 8000);
+  }
+
+  setInterval(heart, 500);
+</script>
 
 </body>
 </html>
