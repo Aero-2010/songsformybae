@@ -36,10 +36,20 @@
       text-align: center;
       margin-bottom: 20px;
     }
-    .playlist iframe {
+    .playlist button {
       width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #1ed760;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .playlist button:hover {
+      transform: scale(1.05);
     }
     .typing {
       border-right: 2px solid #fff;
@@ -56,22 +66,17 @@
 
   <div class="right playlist">
     <h2>My Love Playlist</h2>
-    <iframe src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/4xqrdfXkTW4T0RauPLv3WA?utm_source=generator" width="300" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-<iframe src="https://open.spotify.com/embed/track/4xqrdfXkTW4T0RauPLv3WA"
-        width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
-</iframe>
-    <iframe src="https://open.spotify.com/embed/track/4xqrdfXkTW4T0RauPLv3WA"
-        width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
-</iframe>
-    <iframe src="https://open.spotify.com/embed/track/4xqrdfXkTW4T0RauPLv3WA"
-        width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
-</iframe>
-  
-  
+    <button onclick="playSong(0)">Perfect</button>
+    <button onclick="playSong(1)">Snowman</button>
+    <button onclick="playSong(2)">Those Eyes</button>
+    <button onclick="playSong(3)">Everything I Do</button>
+    <button onclick="playSong(4)">Wanna Be Yours</button>
+    <button onclick="playSong(5)">There's Nothing Holding Me Back</button>
+    <audio id="audioPlayer" controls autoplay loop></audio>
   </div>
 
   <script>
+    // Typing phrases
     const phrases = [
       "Every day with you feels like a dream I never want to wake up from.",
       "You’re my favorite ‘hello’ and hardest ‘goodbye’.",
@@ -109,6 +114,26 @@
     }
 
     typePhrase();
+
+    // Songs
+    const songs = [
+      'perfect.mp3',
+      'snowman.mp3',
+      'those_eyes.mp3',
+      'everything_i_do.mp3',
+      'wanna_be_yours.mp3',
+      'theres_nothing_holding_me_back.mp3'
+    ];
+
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    function playSong(index){
+      audioPlayer.src = songs[index];
+      audioPlayer.play();
+    }
+
+    // Optional: autoplay first song on load
+    playSong(0);
   </script>
 
 </body>
