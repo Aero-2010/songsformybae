@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Playlist ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      overflow: hidden;
+    }
+    .left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.8em;
+      max-width: 80%;
+    }
+    .right {
+      width: 400px;
+      background: #1db954;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .playlist h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .playlist iframe {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .typing {
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="left">
+    <div id="phrase" class="typing"></div>
+  </div>
+
+  <div class="right playlist">
+    <h2>My Love Playlist</h2>
+    <iframe src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/4fV5O0jPZ8yZ8ROO6dQ8Vv" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/5T8EDUDqKcs6OSOwEsfqG7" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/5WUlDfRSoLAfcVSX1WnrxN" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/3RauEVgLq7k3l0R0k8mn4X" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <iframe src="https://open.spotify.com/embed/track/6jJ0s89eD6GaHleKKya26X" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
+
+  <script>
+    const phrases = [
+      "Every day with you feels like a dream I never want to wake up from.",
+      "You’re my favorite ‘hello’ and hardest ‘goodbye’.",
+      "I fall in love with you more every single day.",
+      "Being with you makes everything better.",
+      "You’re my human Wi-Fi—can’t function properly without you.",
+      "You + me = ❤️ forever.",
+      "If loving you was a job, I’d be the happiest, overqualified employee.",
+      "You’re the peanut butter to my jelly, the cheese to my pizza.",
+      "You’re my everything.",
+      "I love you more than words can say.",
+      "You’re my home.",
+      "I’m yours, always."
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    const phraseDiv = document.getElementById('phrase');
+    const typingSpeed = 50;
+    const pauseTime = 2000;
+
+    function typePhrase() {
+      if(charIndex < phrases[phraseIndex].length){
+        phraseDiv.textContent += phrases[phraseIndex][charIndex];
+        charIndex++;
+        setTimeout(typePhrase, typingSpeed);
+      } else {
+        setTimeout(() => {
+          phraseDiv.textContent = '';
+          charIndex = 0;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          typePhrase();
+        }, pauseTime);
+      }
+    }
+
+    typePhrase();
+  </script>
+
+</body>
+</html>
